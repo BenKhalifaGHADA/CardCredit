@@ -59,19 +59,19 @@ class Card extends React.Component {
         return (
             <div>
                 <div className='credit-card'>
-                    <div className='credit-card__logo' >
+                    <div className='credit-card-logo' >
                         <img className='logo' src={this.props.logo} width="60" /></div>
 
-                    <div className='credit-card__number' >{this.renderCardNumber(this.state.number)}</div>
+                    <div className='credit-card-number' >{this.renderCardNumber(this.state.number)}</div>
 
-                    <div className='credit-card__info'>
-                        <div className='credit-card__info_name'>
-                            <div className='credit-card__info_label'>CARDHOLDER'S NAME</div>
+                    <div className='credit-card-info'>
+                        <div className='credit-card-info_name'>
+                            <div className='credit-card-info-label'>CARDHOLDER'S NAME</div>
                             <div>{this.state.name.toUpperCase()}</div>
                         </div>
 
-                        <div className='credit-card__info_expiry'>
-                            <div className='credit-card__info_label'>VALID UP TO</div>
+                        <div className='credit-card-info-expiry'>
+                            <div className='credit-card-info-label'>VALID UP TO</div>
                             <div>{this.renderValidThru(this.state.expiry)}</div>
                         </div>
                     </div>
