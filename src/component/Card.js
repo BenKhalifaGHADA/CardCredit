@@ -5,7 +5,7 @@ class Card extends React.Component {
         super(props)
         this.state = {
             name:"GHADA BEN KHALIFA",
-            number:5241173476290435,
+            number:"5241173476290435",
             expiry:1111
 
         }
@@ -20,9 +20,11 @@ class Card extends React.Component {
 
     //Card Number
     numberChange(c) {
+        if (c.target.value.length <= 19){
         this.setState({
             number: c.target.value
         });
+    }
     }
 
     //Expiry date
@@ -36,7 +38,7 @@ class Card extends React.Component {
     //input: 111111111111111111
     //output: 1111 1111 1111 1111
     renderCardNumber = (number) => {
-        number = number.toString();
+        // number = number.toString();
         let result = " "
         for (let i = 0; i < number.length; i += 4) {
             result += number.slice(i, i + 4) + ' '
