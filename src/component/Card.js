@@ -13,20 +13,27 @@ class Card extends React.Component {
 
     //Name of Card Owner
     nameChange = (n) => {
+        var regex=/[a-z]/gi
+        if(regex.test(n.target.value)){
         this.setState({
             name: n.target.value
         });
     }
+    }
 
     //Card Number
     numberChange(c) {
-        if (c.target.value.length <= 19){
+        var re16digit = /^\d{16}$/    
+        if (c.target.value.length ==16&& re16digit.test(c.target.value)){
         this.setState({
             number: c.target.value
         });
+       }
+       
     }
-    }
+    
 
+    
     //Expiry date
     expiryChange(a){
         this.setState({
@@ -38,7 +45,7 @@ class Card extends React.Component {
     //input: 111111111111111111
     //output: 1111 1111 1111 1111
     renderCardNumber = (number) => {
-        // number = number.toString();
+       
         let result = " "
         for (let i = 0; i < number.length; i += 4) {
             result += number.slice(i, i + 4) + ' '
@@ -88,7 +95,7 @@ class Card extends React.Component {
         <input type="text" maxLength="20" onChange={this.nameChange.bind(this)} />
                         </label>
                         <label>NUMBER CARD
-        <input type="text" maxLength="16" onChange={this.numberChange.bind(this)} />
+        <input type="text" onChange={this.numberChange.bind(this)} />
                         </label>
                         <div>
                             <label>EXPIRATION DATE</label>
